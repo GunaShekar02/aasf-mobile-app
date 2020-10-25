@@ -1,85 +1,41 @@
 import React from 'react';
-import {ScrollView, View, Text, Image} from 'react-native';
+import {ScrollView, Text, TouchableOpacity} from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './Leaderboard.styles';
+import {Colors} from '../../Themes';
+
+import LeaderboardCard from '../../Components/LeaderboardCard/LeaderboardCard';
 
 import Hero from '../../Assets/leaderboard.svg';
+import {leaderboard} from '../../Assets/data/leaderboard';
 
 const Leaderboard = () => {
+  const displayLeaderboard = leaderboard.map((student, index) => (
+    <LeaderboardCard
+      key={student.roll}
+      image={student.image}
+      rank={index + 1}
+      name={student.name}
+      roll={student.roll}
+      score={student.score}
+      leader={index === 0}
+    />
+  ));
+
   return (
     <ScrollView contentContainerStyle={styles.screen}>
       <Text style={styles.title}>Leaderboard</Text>
       <Hero width={'100%'} height={'30%'} style={styles.hero} />
-      <View style={styles.card}>
-        <Image
-          source={{
-            uri:
-              'https://aasfwebsitergdiag.blob.core.windows.net/dps/default.png',
-          }}
-          style={styles.imageLeader}
+      {displayLeaderboard}
+      <TouchableOpacity style={styles.loadContainer} activeOpacity={0.8}>
+        <Text style={styles.load}>Load more...</Text>
+        <MaterialIcons
+          name="keyboard-arrow-down"
+          color={Colors.gold}
+          size={30}
         />
-        <View>
-          <Text style={styles.nameLeader}>Guna Shekar Proddaturi</Text>
-          <Text style={styles.rollLeader}>2018BCS-031</Text>
-        </View>
-        <Text style={styles.scoreLeader}>200</Text>
-      </View>
-      <View style={styles.card}>
-        <Image
-          source={{
-            uri:
-              'https://aasfwebsitergdiag.blob.core.windows.net/dps/default.png',
-          }}
-          style={styles.image}
-        />
-        <View>
-          <Text style={styles.name}>Guna Shekar Proddaturi</Text>
-          <Text style={styles.roll}>2018BCS-031</Text>
-        </View>
-        <Text style={styles.score}>150</Text>
-      </View>
-      <View style={styles.card}>
-        <Image
-          source={{
-            uri:
-              'https://aasfwebsitergdiag.blob.core.windows.net/dps/default.png',
-          }}
-          style={styles.image}
-        />
-        <View>
-          <Text style={styles.name}>Guna Shekar Proddaturi</Text>
-          <Text style={styles.roll}>2018BCS-031</Text>
-        </View>
-        <Text style={styles.score}>100</Text>
-      </View>
-      <View style={styles.card}>
-        <Image
-          source={{
-            uri:
-              'https://aasfwebsitergdiag.blob.core.windows.net/dps/default.png',
-          }}
-          style={styles.image}
-        />
-        <View>
-          <Text style={styles.name}>Guna Shekar Proddaturi</Text>
-          <Text style={styles.roll}>2018BCS-031</Text>
-        </View>
-        <Text style={styles.score}>150</Text>
-      </View>
-      <View style={styles.card}>
-        <Image
-          source={{
-            uri:
-              'https://aasfwebsitergdiag.blob.core.windows.net/dps/default.png',
-          }}
-          style={styles.image}
-        />
-        <View>
-          <Text style={styles.name}>Guna Shekar Proddaturi</Text>
-          <Text style={styles.roll}>2018BCS-031</Text>
-        </View>
-        <Text style={styles.score}>150</Text>
-      </View>
+      </TouchableOpacity>
     </ScrollView>
   );
 };
