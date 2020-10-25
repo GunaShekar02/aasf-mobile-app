@@ -8,6 +8,7 @@ const metrics = {
   tabBarHeight: widthPercentageToDP('15%'),
   h1: widthPercentageToDP('10%'),
   h2: widthPercentageToDP('7%'),
+  h3: widthPercentageToDP('4%'),
   paddingLarge: widthPercentageToDP('15%'),
   paddingMedium: widthPercentageToDP('10%'),
   paddingSmall: widthPercentageToDP('7%'),
