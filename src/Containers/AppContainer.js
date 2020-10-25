@@ -10,7 +10,7 @@ const AppContainer = () => {
       <StatusBar
         translucent
         backgroundColor="transparent"
-        barStyle="dark-content"
+        barStyle="light-content"
       />
       <AppNavigation />
     </>

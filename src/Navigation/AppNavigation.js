@@ -1,10 +1,15 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import CustomTabBar from '../Components/CustomTabBar/CustomTabBar';
+import styles from './AppNavigation.styles';
+
+import Home from '../Containers/Home/Home';
+
 import CustomAttendanceIcon from '../Components/CustomAttendanceIcon/CustomAttendanceIcon';
+
+import {Colors} from '../Themes';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,14 +18,16 @@ export default AppNavigation = () => {
     <Tab.Navigator
       tabBarOptions={{
         showLabel: false,
-      }}
-      tabBar={(props) => <CustomTabBar {...props} />}>
+        activeTintColor: Colors.gold,
+        inactiveTintColor: Colors.white,
+        style: styles.tabBar,
+      }}>
       <Tab.Screen
         name="Home"
-        component={() => <></>}
+        component={Home}
         options={{
-          tabBarIcon: () => (
-            <MaterialIcons name="home" color={'#000000'} size={30} />
+          tabBarIcon: ({color}) => (
+            <MaterialIcons name="home" color={color} size={30} />
           ),
         }}
       />
@@ -28,8 +35,8 @@ export default AppNavigation = () => {
         name="Leaderboard"
         component={() => <Text>Leaderboard</Text>}
         options={{
-          tabBarIcon: () => (
-            <MaterialIcons name="leaderboard" color={'#000000'} size={30} />
+          tabBarIcon: ({color}) => (
+            <MaterialIcons name="leaderboard" color={color} size={30} />
           ),
         }}
       />
@@ -44,8 +51,8 @@ export default AppNavigation = () => {
         name="Calendar"
         component={() => <></>}
         options={{
-          tabBarIcon: () => (
-            <MaterialIcons name="calendar-today" color={'#000000'} size={30} />
+          tabBarIcon: ({color}) => (
+            <MaterialIcons name="calendar-today" color={color} size={30} />
           ),
         }}
       />
@@ -53,8 +60,8 @@ export default AppNavigation = () => {
         name="Profile"
         component={() => <></>}
         options={{
-          tabBarIcon: () => (
-            <MaterialIcons name="person" color={'#000000'} size={30} />
+          tabBarIcon: ({color}) => (
+            <MaterialIcons name="person" color={color} size={30} />
           ),
         }}
       />
