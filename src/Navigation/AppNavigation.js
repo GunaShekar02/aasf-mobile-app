@@ -7,6 +7,7 @@ import styles from './AppNavigation.styles';
 
 import Home from '../Containers/Home/Home';
 import Leaderboard from '../Containers/Leaderboard/Leaderboard';
+import ProfileNavigation from './ProfileNavigation';
 
 import CustomAttendanceIcon from '../Components/CustomAttendanceIcon/CustomAttendanceIcon';
 
@@ -59,7 +60,7 @@ export default AppNavigation = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={() => <></>}
+        component={ProfileNavigation}
         options={{
           tabBarIcon: ({color}) => (
             <MaterialIcons name="person" color={color} size={30} />
