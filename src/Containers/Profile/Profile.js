@@ -50,7 +50,10 @@ const Profile = ({navigation}) => {
         <MaterialIcons name="lightbulb" size={Metrics.h2} color={Colors.gold} />
         <Text style={styles.text}>Drop a Suggestion</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.card} activeOpacity={0.8}>
+      <TouchableOpacity
+        style={styles.card}
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate('ContactUs')}>
         <MaterialIcons
           name="local-phone"
           size={Metrics.h2}

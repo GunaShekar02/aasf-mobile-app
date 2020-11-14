@@ -6,6 +6,7 @@ import Statistics from '../Containers/Statistics/Statistics';
 import WriteABlog from '../Containers/WriteABlog/WriteABlog';
 import Suggestions from '../Containers/Suggestions/Suggestions';
 import ResetPassword from '../Containers/ResetPassword/ResetPassword';
+import ContactUs from '../Containers/ContactUs/ContactUs';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export default ProfileNavigation = () => {
       <Stack.Screen name="WriteABlog" component={WriteABlog} />
       <Stack.Screen name="Suggestions" component={Suggestions} />
       <Stack.Screen name="ResetPassword" component={ResetPassword} />
+      <Stack.Screen name="ContactUs" component={ContactUs} />
     </Stack.Navigator>
   );
 };
