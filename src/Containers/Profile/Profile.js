@@ -36,7 +36,10 @@ const Profile = ({navigation}) => {
         <MaterialIcons name="article" size={Metrics.h2} color={Colors.gold} />
         <Text style={styles.text}>Write a Blog</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.card} activeOpacity={0.8}>
+      <TouchableOpacity
+        style={styles.card}
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate('ResetPassword')}>
         <MaterialIcons name="vpn-key" size={Metrics.h2} color={Colors.gold} />
         <Text style={styles.text}>Reset Password</Text>
       </TouchableOpacity>
