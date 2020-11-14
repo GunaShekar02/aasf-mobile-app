@@ -1,12 +1,12 @@
 import React from 'react';
-import {ScrollView, Text, TouchableOpacity, Linking, View} from 'react-native';
+import {ScrollView, Text, TouchableOpacity, Linking} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styles from './ContactUs.styles';
 import {Colors} from '../../Themes';
 
-const ContactUs = () => {
+const ContactUs = ({navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.screen}>
       <Text style={styles.title}>

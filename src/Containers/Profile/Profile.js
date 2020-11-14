@@ -61,7 +61,10 @@ const Profile = ({navigation}) => {
         />
         <Text style={styles.text}>Contact Us</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.card} activeOpacity={0.8}>
+      <TouchableOpacity
+        style={styles.card}
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate('BugReport')}>
         <MaterialIcons
           name="bug-report"
           size={Metrics.h2}

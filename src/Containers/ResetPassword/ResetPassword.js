@@ -8,7 +8,7 @@ import {Colors} from '../../Themes';
 import TextInput from '../../Components/TextInput/TextInput';
 import Button from '../../Components/Button/Button';
 
-const ResetPassword = () => {
+const ResetPassword = ({navigation}) => {
   const [currentPassword, setCurrentPassword] = useState();
   const [newPassword, setNewPassword] = useState();
   const [repeatPassword, setRepeatPassword] = useState();
