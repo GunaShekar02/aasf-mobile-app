@@ -8,6 +8,8 @@ export default StyleSheet.create({
     minHeight: Metrics.screenHeight,
     paddingVertical: Metrics.paddingLarge,
     paddingHorizontal: Metrics.paddingSmall,
+    paddingBottom: Metrics.paddingLarge * 2,
+
     display: 'flex',
   },
   intro: {

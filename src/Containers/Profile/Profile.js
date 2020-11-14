@@ -29,7 +29,10 @@ const Profile = ({navigation}) => {
         <MaterialIcons name="pie-chart" size={Metrics.h2} color={Colors.gold} />
         <Text style={styles.text}>My Statistics</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.card} activeOpacity={0.8}>
+      <TouchableOpacity
+        style={styles.card}
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate('WriteABlog')}>
         <MaterialIcons name="article" size={Metrics.h2} color={Colors.gold} />
         <Text style={styles.text}>Write a Blog</Text>
       </TouchableOpacity>

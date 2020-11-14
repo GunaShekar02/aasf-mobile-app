@@ -7,7 +7,7 @@ export default StyleSheet.create({
     minHeight: Metrics.screenHeight,
     paddingVertical: Metrics.paddingLarge,
     paddingHorizontal: Metrics.paddingSmall,
-    paddingBottom: Metrics.paddingLarge * 2,
+    paddingBottom: Metrics.paddingLarge * 5,
     display: 'flex',
   },
   title: {
@@ -15,31 +15,22 @@ export default StyleSheet.create({
     fontSize: Metrics.h1,
     marginBottom: Metrics.marginMedium,
   },
-  text: {
-    fontSize: Metrics.h2,
-    color: Colors.white,
+  image: {
     marginBottom: Metrics.marginMedium,
   },
-  pieView: {
-    alignItems: 'center',
-  },
-  achievementsBox: {
-    alignSelf: 'center',
-    width: Metrics.screenWidth * 0.75,
-    borderWidth: 1,
-    borderColor: Colors.gold,
-    marginVertical: Metrics.marginMedium,
-    padding: Metrics.paddingExtraSmall,
-  },
-  achievementsTitle: {
-    fontSize: Metrics.h2,
+  instructionsTitle: {
     color: Colors.gold,
-    textAlign: 'center',
+    fontSize: Metrics.h2,
     marginBottom: Metrics.marginSmall,
   },
-  achievementsText: {
-    fontSize: Metrics.h3,
+  instructionsText: {
     color: Colors.white,
+    fontSize: Metrics.h3,
+    marginBottom: Metrics.marginSmall,
+  },
+  noteText: {
+    color: Colors.gold,
+    fontSize: Metrics.h3,
     marginBottom: Metrics.marginSmall,
   },
 });

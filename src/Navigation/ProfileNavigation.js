@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Profile from '../Containers/Profile/Profile';
 import Statistics from '../Containers/Statistics/Statistics';
+import WriteABlog from '../Containers/WriteABlog/WriteABlog';
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ export default ProfileNavigation = () => {
       }}>
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="Statistics" component={Statistics} />
+      <Stack.Screen name="WriteABlog" component={WriteABlog} />
     </Stack.Navigator>
   );
 };
