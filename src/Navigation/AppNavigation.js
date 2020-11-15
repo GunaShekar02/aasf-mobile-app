@@ -7,6 +7,7 @@ import styles from './AppNavigation.styles';
 
 import Home from '../Containers/Home/Home';
 import Leaderboard from '../Containers/Leaderboard/Leaderboard';
+import Attendance from '../Containers/Attendance/Attendance';
 import ProfileNavigation from './ProfileNavigation';
 
 import CustomAttendanceIcon from '../Components/CustomAttendanceIcon/CustomAttendanceIcon';
@@ -44,7 +45,7 @@ export default AppNavigation = () => {
       />
       <Tab.Screen
         name="Attendance"
-        component={() => <Text>Attendance</Text>}
+        component={Attendance}
         options={{
           tabBarIcon: () => <CustomAttendanceIcon />,
         }}
