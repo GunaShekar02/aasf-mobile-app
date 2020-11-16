@@ -8,6 +8,7 @@ import styles from './AppNavigation.styles';
 import Home from '../Containers/Home/Home';
 import Leaderboard from '../Containers/Leaderboard/Leaderboard';
 import Attendance from '../Containers/Attendance/Attendance';
+import Calendar from '../Containers/Calendar/Calendar';
 import ProfileNavigation from './ProfileNavigation';
 
 import CustomAttendanceIcon from '../Components/CustomAttendanceIcon/CustomAttendanceIcon';
@@ -52,7 +53,7 @@ export default AppNavigation = () => {
       />
       <Tab.Screen
         name="Calendar"
-        component={() => <></>}
+        component={Calendar}
         options={{
           tabBarIcon: ({color}) => (
             <MaterialIcons name="calendar-today" color={color} size={30} />
