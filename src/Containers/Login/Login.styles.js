@@ -9,20 +9,11 @@ export default StyleSheet.create({
     paddingVertical: Metrics.paddingLarge,
     paddingHorizontal: Metrics.paddingSmall,
     paddingBottom: Metrics.paddingLarge * 2,
-    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  intro: {
-    color: Colors.white,
-    fontSize: Metrics.h2,
-  },
-  name: {
-    color: Colors.gold,
-    fontSize: Metrics.h1,
-    marginBottom: Metrics.marginMedium,
-  },
-  hero: {
-    width: Metrics.screenWidth * 0.75,
-    height: Metrics.screenWidth * 0.5,
-    alignSelf: 'center',
+  logo: {
+    width: Metrics.screenWidth / 1.5,
+    height: Metrics.screenWidth / 1.5,
   },
 });

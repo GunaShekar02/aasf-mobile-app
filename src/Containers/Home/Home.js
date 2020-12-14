@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Text} from 'react-native';
+import {ScrollView, Text, Linking} from 'react-native';
 
 import styles from './Home.styles';
 
@@ -15,6 +15,7 @@ const Home = () => {
       text={data.text}
       image={data.image}
       reverse={index % 2}
+      onPress={() => Linking.openURL(data.link)}
     />
   ));
 
