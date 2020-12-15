@@ -1,6 +1,6 @@
 import {LOGIN, LOGOUT} from '../ActionTypes';
 
-const authReducer = (state = {isLoggedIn: false, token: null}, action) => {
+const auth = (state = {isLoggedIn: false, token: null}, action) => {
   switch (action.type) {
     case LOGIN:
       return {
@@ -15,4 +15,4 @@ const authReducer = (state = {isLoggedIn: false, token: null}, action) => {
   }
 };
 
-export default authReducer;
+export default auth;

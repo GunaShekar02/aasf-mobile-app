@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 import styles from './Profile.styles';
 import {Colors, Metrics} from '../../Themes';
@@ -9,6 +9,8 @@ import {Colors, Metrics} from '../../Themes';
 import {LOGOUT} from '../../Redux/ActionTypes';
 
 const Profile = ({navigation}) => {
+  const {name} = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
 
   return (
@@ -26,7 +28,7 @@ const Profile = ({navigation}) => {
           <MaterialIcons name="edit" size={Metrics.h3} color={Colors.white} />
         </TouchableOpacity>
       </View>
-      <Text style={styles.name}>Guna Shekar Proddaturi</Text>
+      <Text style={styles.name}>{name}</Text>
       <TouchableOpacity
         style={styles.card}
         activeOpacity={0.8}

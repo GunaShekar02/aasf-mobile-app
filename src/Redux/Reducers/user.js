@@ -1,6 +1,6 @@
 import {USER_DETAILS_SUCCESS} from '../ActionTypes';
 
-const userReducer = (
+const user = (
   state = {_id: null, name: null, email: null, score: {}, achievements: {}},
   action,
 ) => {
@@ -12,4 +12,4 @@ const userReducer = (
   }
 };
 
-export default userReducer;
+export default user;

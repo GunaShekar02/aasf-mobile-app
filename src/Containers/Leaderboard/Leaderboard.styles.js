@@ -7,7 +7,7 @@ export default StyleSheet.create({
     minHeight: Metrics.screenHeight,
     paddingVertical: Metrics.paddingLarge,
     paddingHorizontal: Metrics.paddingSmall,
-    paddingBottom: Metrics.paddingLarge * 5,
+    paddingBottom: Metrics.paddingLarge * 1.5,
     display: 'flex',
   },
   hero: {

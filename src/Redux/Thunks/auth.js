@@ -18,7 +18,6 @@ export const login = (roll, password) => async (dispatch) => {
       payload: userData.user,
     });
   } catch (err) {
-    console.log(err);
     throw err;
   }
 };

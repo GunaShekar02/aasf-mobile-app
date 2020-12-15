@@ -2,6 +2,7 @@ import React from 'react';
 import {ScrollView, View, Text, TouchableOpacity} from 'react-native';
 import Pie from 'react-native-pie';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {useSelector} from 'react-redux';
 
 import styles from './Statistics.styles';
 import {Colors} from '../../Themes';
@@ -9,6 +10,9 @@ import {Colors} from '../../Themes';
 import IndicatorBox from '../../Components/IndicatorBox/IndicatorBox';
 
 const Statistics = ({navigation}) => {
+  const {score, achievements} = useSelector((state) => state.user);
+  const totalScore = score?.technical + score?.managerial + score?.oratory || 0;
+
   return (
     <ScrollView contentContainerStyle={styles.screen}>
       <Text style={styles.title}>
@@ -17,8 +21,8 @@ const Statistics = ({navigation}) => {
         </TouchableOpacity>
         Statistics
       </Text>
-      <Text style={styles.text}>Total Score : 100</Text>
-      <Text style={styles.text}>Leaderboard Rank : 10</Text>
+      <Text style={styles.text}>Total Score : {totalScore}</Text>
+      {/* <Text style={styles.text}>Leaderboard Rank : 10</Text> */}
       <View style={styles.pieView}>
         <IndicatorBox
           backgroundColor={Colors.red}
@@ -36,15 +40,15 @@ const Statistics = ({navigation}) => {
           radius={100}
           sections={[
             {
-              percentage: 80,
+              percentage: (score?.technical * 100) / totalScore || 0,
               color: Colors.red,
             },
             {
-              percentage: 10,
+              percentage: (score?.managerial * 100) / totalScore || 0,
               color: Colors.green,
             },
             {
-              percentage: 10,
+              percentage: (score?.oratory * 100) / totalScore || 0,
               color: Colors.blue,
             },
           ]}
@@ -53,9 +57,15 @@ const Statistics = ({navigation}) => {
 
       <View style={styles.achievementsBox}>
         <Text style={styles.achievementsTitle}>Achievements</Text>
-        <Text style={styles.achievementsText}>First : JAM, Junior PC - 1</Text>
-        <Text style={styles.achievementsText}>Second : JAM, Junior PC - 1</Text>
-        <Text style={styles.achievementsText}>Third : JAM, Junior PC - 1</Text>
+        <Text style={styles.achievementsText}>
+          First : {achievements.first.join(', ')}
+        </Text>
+        <Text style={styles.achievementsText}>
+          Second : {achievements.second.join(', ')}
+        </Text>
+        <Text style={styles.achievementsText}>
+          Third : {achievements.third.join(', ')}
+        </Text>
       </View>
     </ScrollView>
   );

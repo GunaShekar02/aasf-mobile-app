@@ -5,6 +5,7 @@ import {persistStore, persistCombineReducers} from 'redux-persist';
 
 import auth from './Reducers/auth';
 import user from './Reducers/user';
+import leaderboard from './Reducers/leaderboard';
 
 const config = {
   key: 'root',
@@ -16,6 +17,7 @@ export const ConfigureStore = () => {
     persistCombineReducers(config, {
       auth,
       user,
+      leaderboard,
     }),
     applyMiddleware(thunk),
   );
