@@ -4,3 +4,4 @@ const USERS_URL = `${BASE_URL}/users`;
 export const LOGIN_URL = `${USERS_URL}/login`;
 export const USER_DETAILS_URL = `${USERS_URL}/details`;
 export const LEADERBOARD_URL = `${USERS_URL}/leaderboard`;
+export const PASSWORD_URL = `${USERS_URL}/password`;

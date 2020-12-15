@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {ScrollView, Text, TouchableOpacity} from 'react-native';
+import {Alert, ScrollView, Text, TouchableOpacity} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {useDispatch} from 'react-redux';
 
 import styles from './ResetPassword.styles';
 import {Colors} from '../../Themes';
@@ -8,10 +9,36 @@ import {Colors} from '../../Themes';
 import TextInput from '../../Components/TextInput/TextInput';
 import Button from '../../Components/Button/Button';
 
+import {resetPassword} from '../../Redux/Thunks/users';
+
 const ResetPassword = ({navigation}) => {
+  const dispatch = useDispatch();
+
   const [currentPassword, setCurrentPassword] = useState();
   const [newPassword, setNewPassword] = useState();
   const [repeatPassword, setRepeatPassword] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const handleReset = async () => {
+    try {
+      if (!currentPassword || !newPassword || !repeatPassword)
+        throw {message: 'Please fill all the fields.'};
+      if (newPassword.length < 8)
+        throw {message: 'Please select a password of at least 8 characters'};
+      if (newPassword != repeatPassword)
+        throw {message: "Repeated password doesn't match!"};
+      setLoading(true);
+      await dispatch(resetPassword(currentPassword, newPassword));
+      Alert.alert('SUCCESS!', 'Password successfully changed!');
+    } catch (err) {
+      Alert.alert(
+        'OOPS!',
+        err.message || 'Something went wrong! Please try again.',
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.screen}>
@@ -40,7 +67,7 @@ const ResetPassword = ({navigation}) => {
         value={repeatPassword}
         setValue={setRepeatPassword}
       />
-      <Button title={'Reset'} />
+      <Button title={'Reset'} loading={loading} onPress={handleReset} />
     </ScrollView>
   );
 };

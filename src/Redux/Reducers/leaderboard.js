@@ -8,6 +8,9 @@ const leaderboard = (state = {leaderboard: [], done: false}, action) => {
         leaderboard: [...state.leaderboard, ...action.payload.leaderboard],
         done: action.payload.leaderboard.length === 0,
       };
+    case 'CLEAR':
+      return {...state, leaderboard: []};
+
     default:
       return state;
   }
