@@ -1,11 +1,16 @@
 import React from 'react';
 import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {useDispatch} from 'react-redux';
 
 import styles from './Profile.styles';
 import {Colors, Metrics} from '../../Themes';
 
+import {LOGOUT} from '../../Redux/ActionTypes';
+
 const Profile = ({navigation}) => {
+  const dispatch = useDispatch();
+
   return (
     <ScrollView contentContainerStyle={styles.screen}>
       <Text style={styles.title}>Profile</Text>
@@ -71,6 +76,13 @@ const Profile = ({navigation}) => {
           color={Colors.gold}
         />
         <Text style={styles.text}>Report a Bug</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.card}
+        activeOpacity={0.8}
+        onPress={() => dispatch({type: LOGOUT})}>
+        <MaterialIcons name="logout" size={Metrics.h2} color={Colors.gold} />
+        <Text style={styles.text}>Logout</Text>
       </TouchableOpacity>
     </ScrollView>
   );
