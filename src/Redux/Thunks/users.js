@@ -1,9 +1,27 @@
 import * as ActionTypes from '../ActionTypes';
 
 import {
+  getUserDetails as getUserDetailsService,
   getLeaderboard as getLeaderboardService,
   resetPassword as resetPasswordService,
 } from '../../Services/users.service';
+
+export const getUserDetails = () => async (dispatch, getState) => {
+  try {
+    const {
+      auth: {token},
+    } = getState();
+
+    const userData = await getUserDetailsService(token);
+
+    dispatch({
+      type: ActionTypes.USER_DETAILS_SUCCESS,
+      payload: userData.user,
+    });
+  } catch (err) {
+    throw err;
+  }
+};
 
 export const getLeaderboard = () => async (dispatch, getState) => {
   try {

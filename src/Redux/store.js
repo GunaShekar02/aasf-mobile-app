@@ -10,7 +10,7 @@ import leaderboard from './Reducers/leaderboard';
 const config = {
   key: 'root',
   storage: AsyncStorage,
-  blacklist: ['leaderboard'],
+  blacklist: ['leaderboard', 'user'],
 };
 
 export const ConfigureStore = () => {

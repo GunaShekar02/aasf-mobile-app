@@ -7,6 +7,8 @@ const user = (
   switch (action.type) {
     case USER_DETAILS_SUCCESS:
       return {...state, ...action.payload};
+    case 'CLEAR_USER':
+      return {_id: null, name: null, email: null, score: {}, achievements: {}};
     default:
       return state;
   }
