@@ -1,5 +1,13 @@
 import React from 'react';
-import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  Linking,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useSelector, useDispatch} from 'react-redux';
 
@@ -13,6 +21,26 @@ const Profile = ({navigation}) => {
 
   const dispatch = useDispatch();
 
+  const displayEditAlert = () => {
+    Alert.alert(
+      '',
+      'The developer has been procrastinating the development of this feature! You can bug him to do this on his LinkedIn profile.',
+      [
+        {
+          text: 'Close',
+          style: 'cancel',
+        },
+        {
+          text: 'Profile',
+          onPress: () =>
+            Linking.openURL(
+              'https://www.linkedin.com/in/guna-shekar-proddaturi/',
+            ),
+        },
+      ],
+    );
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.screen}>
       <Text style={styles.title}>Profile</Text>
@@ -24,7 +52,10 @@ const Profile = ({navigation}) => {
           }}
           style={styles.image}
         />
-        <TouchableOpacity style={styles.edit} activeOpacity={0.8}>
+        <TouchableOpacity
+          style={styles.edit}
+          activeOpacity={0.8}
+          onPress={displayEditAlert}>
           <MaterialIcons name="edit" size={Metrics.h3} color={Colors.white} />
         </TouchableOpacity>
       </View>

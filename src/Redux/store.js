@@ -6,11 +6,12 @@ import {persistStore, persistCombineReducers} from 'redux-persist';
 import auth from './Reducers/auth';
 import user from './Reducers/user';
 import leaderboard from './Reducers/leaderboard';
+import events from './Reducers/events';
 
 const config = {
   key: 'root',
   storage: AsyncStorage,
-  blacklist: ['leaderboard', 'user'],
+  blacklist: ['leaderboard'],
 };
 
 export const ConfigureStore = () => {
@@ -19,6 +20,7 @@ export const ConfigureStore = () => {
       auth,
       user,
       leaderboard,
+      events,
     }),
     applyMiddleware(thunk),
   );
