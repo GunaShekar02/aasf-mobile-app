@@ -13,7 +13,7 @@ const CustomTextInput = ({placeholder, value, setValue, ...rest}) => {
       placeholderTextColor={Colors.white}
       value={value}
       onChangeText={(text) => setValue(text)}
-      selectionColor="red"
+      selectionColor={Colors.gold}
     />
   );
 };

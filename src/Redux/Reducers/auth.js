@@ -1,4 +1,4 @@
-import {LOGIN, LOGIN_FAILED, LOGIN_LOADING, LOGOUT} from '../ActionTypes';
+import {LOGIN, LOGOUT} from '../ActionTypes';
 
 const authReducer = (state = {isLoggedIn: false, token: null}, action) => {
   switch (action.type) {

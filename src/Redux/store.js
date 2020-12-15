@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {persistStore, persistCombineReducers} from 'redux-persist';
 
 import auth from './Reducers/auth';
+import user from './Reducers/user';
 
 const config = {
   key: 'root',
@@ -14,6 +15,7 @@ export const ConfigureStore = () => {
   const store = createStore(
     persistCombineReducers(config, {
       auth,
+      user,
     }),
     applyMiddleware(thunk),
   );
