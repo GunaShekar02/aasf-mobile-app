@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import 'react-native-gesture-handler';
 import {Alert, StatusBar} from 'react-native';
 import {useDispatch} from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
 
 import AppNavigation from '../Navigation/AppNavigation';
 
@@ -16,6 +17,7 @@ const AppContainer = () => {
     try {
       await dispatch(getUserDetails());
       setLoading(false);
+      SplashScreen.hide();
     } catch (err) {
       Alert.alert(
         'OOPS!',
