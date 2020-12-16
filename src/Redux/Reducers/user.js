@@ -1,4 +1,4 @@
-import {USER_DETAILS_SUCCESS} from '../ActionTypes';
+import {USER_DETAILS_SUCCESS, CLEAR_USER_DETAILS} from '../ActionTypes';
 
 const user = (
   state = {_id: null, name: null, email: null, score: {}, achievements: {}},
@@ -6,8 +6,8 @@ const user = (
 ) => {
   switch (action.type) {
     case USER_DETAILS_SUCCESS:
-      return {...state, ...action.payload};
-    case 'CLEAR_USER':
+      return {...state, ...action.payload.user, rank: action.payload.rank};
+    case CLEAR_USER_DETAILS:
       return {_id: null, name: null, email: null, score: {}, achievements: {}};
     default:
       return state;

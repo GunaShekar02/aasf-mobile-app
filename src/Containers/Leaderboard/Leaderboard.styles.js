@@ -28,4 +28,17 @@ export default StyleSheet.create({
     color: Colors.white,
     marginBottom: 0,
   },
+  rank: {
+    fontSize: Metrics.h2,
+    color: Colors.white,
+    textAlign: 'center',
+  },
+  gold: {
+    color: Colors.gold,
+  },
+  note: {
+    fontSize: Metrics.h3,
+    color: Colors.white,
+    textAlign: 'center',
+  },
 });

@@ -1,4 +1,4 @@
-import {FETCH_LEADERBOARD_SUCCESS} from '../ActionTypes';
+import {CLEAR_LEADERBOARD, FETCH_LEADERBOARD_SUCCESS} from '../ActionTypes';
 
 const leaderboard = (state = {leaderboard: [], done: false}, action) => {
   switch (action.type) {
@@ -8,9 +8,8 @@ const leaderboard = (state = {leaderboard: [], done: false}, action) => {
         leaderboard: [...state.leaderboard, ...action.payload.leaderboard],
         done: action.payload.leaderboard.length === 0,
       };
-    case 'CLEAR':
-      return {...state, leaderboard: []};
-
+    case CLEAR_LEADERBOARD:
+      return {...state, leaderboard: [], done: false};
     default:
       return state;
   }

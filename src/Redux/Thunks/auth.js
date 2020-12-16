@@ -14,3 +14,19 @@ export const login = (roll, password) => async (dispatch) => {
     throw err;
   }
 };
+
+export const logout = () => (dispatch) => {
+  try {
+    dispatch({
+      type: ActionTypes.LOGOUT,
+    }),
+      dispatch({
+        type: ActionTypes.CLEAR_USER_DETAILS,
+      });
+    dispatch({
+      type: ActionTypes.CLEAR_LEADERBOARD,
+    });
+  } catch (err) {
+    throw err;
+  }
+};

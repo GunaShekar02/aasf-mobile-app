@@ -16,7 +16,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
 
     dispatch({
       type: ActionTypes.USER_DETAILS_SUCCESS,
-      payload: userData.user,
+      payload: {user: userData.user, rank: userData.rank},
     });
   } catch (err) {
     throw err;

@@ -10,7 +10,7 @@ import {Colors} from '../../Themes';
 import IndicatorBox from '../../Components/IndicatorBox/IndicatorBox';
 
 const Statistics = ({navigation}) => {
-  const {score, achievements} = useSelector((state) => state.user);
+  const {score, achievements, rank} = useSelector((state) => state.user);
   const totalScore = score?.technical + score?.managerial + score?.oratory || 0;
 
   return (
@@ -22,7 +22,7 @@ const Statistics = ({navigation}) => {
         Statistics
       </Text>
       <Text style={styles.text}>Total Score : {totalScore}</Text>
-      {/* <Text style={styles.text}>Leaderboard Rank : 10</Text> */}
+      <Text style={styles.text}>Leaderboard Rank : {rank}</Text>
       <View style={styles.pieView}>
         <IndicatorBox
           backgroundColor={Colors.red}

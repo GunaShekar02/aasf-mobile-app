@@ -14,7 +14,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import styles from './Profile.styles';
 import {Colors, Metrics} from '../../Themes';
 
-import {LOGOUT} from '../../Redux/ActionTypes';
+import {logout} from '../../Redux/Thunks/auth';
 
 const Profile = ({navigation}) => {
   const {name} = useSelector((state) => state.user);
@@ -113,7 +113,7 @@ const Profile = ({navigation}) => {
       <TouchableOpacity
         style={styles.card}
         activeOpacity={0.8}
-        onPress={() => dispatch({type: LOGOUT})}>
+        onPress={() => dispatch(logout())}>
         <MaterialIcons name="logout" size={Metrics.h2} color={Colors.gold} />
         <Text style={styles.text}>Logout</Text>
       </TouchableOpacity>

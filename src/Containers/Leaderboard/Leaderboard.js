@@ -22,6 +22,7 @@ const Leaderboard = () => {
   const [loading, setLoading] = useState(false);
 
   const {leaderboard, done} = useSelector((state) => state.leaderboard);
+  const {rank} = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const loadMore = async () => {
@@ -65,6 +66,12 @@ const Leaderboard = () => {
         height={Metrics.screenWidth / 2}
         style={styles.hero}
       />
+      <Text style={styles.rank}>
+        Your Rank : <Text style={styles.gold}>{rank}</Text>
+      </Text>
+      <Text style={styles.note}>
+        *Rank might be different in the leaderboard due to equality of scores.
+      </Text>
       {displayLeaderboard}
       {loading ? (
         <ActivityIndicator size="large" color={Colors.gold} />
