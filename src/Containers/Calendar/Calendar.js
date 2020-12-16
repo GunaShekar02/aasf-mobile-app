@@ -7,8 +7,6 @@ import {Colors, Metrics} from '../../Themes';
 
 import styles from './Calendar.styles';
 
-import {items} from '../../Assets/data/calendar';
-
 import {getEvents} from '../../Redux/Thunks/events';
 
 const Calendar = () => {

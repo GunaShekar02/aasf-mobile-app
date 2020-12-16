@@ -13,4 +13,9 @@ export default StyleSheet.create({
     borderColor: Colors.gold,
     borderRadius: 10,
   },
+  marked: {
+    borderColor: Colors.gold,
+    borderRadius: 10,
+    backgroundColor: Colors.darkGrey,
+  },
 });

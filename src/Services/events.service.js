@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {EVENTS_URL} from '../Utils/constants';
+import {ATTENDANCE_URL, EVENTS_URL} from '../Utils/constants';
 
 export const getEvents = async () => {
   try {
@@ -9,5 +9,19 @@ export const getEvents = async () => {
     return data;
   } catch (err) {
     throw err;
+  }
+};
+
+export const markAttendance = async (token, hash) => {
+  try {
+    const {data} = await axios.post(
+      ATTENDANCE_URL,
+      {hash},
+      {headers: {Authorization: `Bearer ${token}`}},
+    );
+
+    return data;
+  } catch (err) {
+    throw err.response.data;
   }
 };

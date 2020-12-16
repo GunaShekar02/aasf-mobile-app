@@ -1,6 +1,9 @@
 import * as ActionTypes from '../ActionTypes';
 
-import {getEvents as getEventsService} from '../../Services/events.service';
+import {
+  getEvents as getEventsService,
+  markAttendance as markAttendanceService,
+} from '../../Services/events.service';
 
 export const getEvents = () => async (dispatch) => {
   try {
@@ -35,6 +38,19 @@ export const getEvents = () => async (dispatch) => {
       type: ActionTypes.FETCH_EVENTS_SUCCESS,
       payload: {events},
     });
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const markAttendance = (hash) => async (_, getState) => {
+  try {
+    const {
+      auth: {token},
+    } = getState();
+
+    const data = await markAttendanceService(token, hash);
+    console.log(data);
   } catch (err) {
     throw err;
   }

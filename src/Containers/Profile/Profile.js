@@ -67,13 +67,13 @@ const Profile = ({navigation}) => {
         <MaterialIcons name="pie-chart" size={Metrics.h2} color={Colors.gold} />
         <Text style={styles.text}>My Statistics</Text>
       </TouchableOpacity>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.card}
         activeOpacity={0.8}
         onPress={() => navigation.navigate('WriteABlog')}>
         <MaterialIcons name="article" size={Metrics.h2} color={Colors.gold} />
         <Text style={styles.text}>Write a Blog</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <TouchableOpacity
         style={styles.card}
         activeOpacity={0.8}
@@ -81,13 +81,13 @@ const Profile = ({navigation}) => {
         <MaterialIcons name="vpn-key" size={Metrics.h2} color={Colors.gold} />
         <Text style={styles.text}>Reset Password</Text>
       </TouchableOpacity>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.card}
         activeOpacity={0.8}
         onPress={() => navigation.navigate('Suggestions')}>
         <MaterialIcons name="lightbulb" size={Metrics.h2} color={Colors.gold} />
         <Text style={styles.text}>Drop a Suggestion</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <TouchableOpacity
         style={styles.card}
         activeOpacity={0.8}
@@ -99,7 +99,7 @@ const Profile = ({navigation}) => {
         />
         <Text style={styles.text}>Contact Us</Text>
       </TouchableOpacity>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.card}
         activeOpacity={0.8}
         onPress={() => navigation.navigate('BugReport')}>
@@ -109,7 +109,7 @@ const Profile = ({navigation}) => {
           color={Colors.gold}
         />
         <Text style={styles.text}>Report a Bug</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <TouchableOpacity
         style={styles.card}
         activeOpacity={0.8}
