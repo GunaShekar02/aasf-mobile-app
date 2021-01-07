@@ -3,10 +3,11 @@ import 'react-native-gesture-handler';
 import {Alert, StatusBar} from 'react-native';
 import {useDispatch} from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
+import messaging from '@react-native-firebase/messaging';
 
 import AppNavigation from '../Navigation/AppNavigation';
 
-import {getUserDetails} from '../Redux/Thunks/users';
+import {getUserDetails, resetFcmToken} from '../Redux/Thunks/users';
 
 const AppContainer = () => {
   const dispatch = useDispatch();
@@ -25,8 +26,21 @@ const AppContainer = () => {
       );
     }
   };
+
+  const sendFcmToken = async () => {
+    try {
+      await messaging().registerDeviceForRemoteMessages();
+      const token = await messaging().getToken();
+      await dispatch(resetFcmToken(token));
+    } catch (err) {
+      //Do nothing
+      return;
+    }
+  };
+
   useEffect(() => {
     loadUserDetails();
+    sendFcmToken();
   }, []);
 
   return (

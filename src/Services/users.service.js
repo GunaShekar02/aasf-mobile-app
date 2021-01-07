@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import {
+  FCM_TOKEN_URL,
   LEADERBOARD_URL,
   PASSWORD_URL,
   USER_DETAILS_URL,
@@ -39,6 +40,18 @@ export const resetPassword = async (token, currentPassword, newPassword) => {
     );
 
     return data;
+  } catch (err) {
+    throw err.response.data;
+  }
+};
+
+export const resetFcmToken = async (token, fcmToken) => {
+  try {
+    await axios.put(
+      FCM_TOKEN_URL,
+      {fcmToken},
+      {headers: {Authorization: `Bearer ${token}`}},
+    );
   } catch (err) {
     throw err.response.data;
   }

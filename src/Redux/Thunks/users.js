@@ -4,6 +4,7 @@ import {
   getUserDetails as getUserDetailsService,
   getLeaderboard as getLeaderboardService,
   resetPassword as resetPasswordService,
+  resetFcmToken as resetFcmTokenService,
 } from '../../Services/users.service';
 
 export const getUserDetails = () => async (dispatch, getState) => {
@@ -50,6 +51,18 @@ export const resetPassword = (currentPassword, newPassword) => async (
     } = getState();
 
     await resetPasswordService(token, currentPassword, newPassword);
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const resetFcmToken = (fcmToken) => async (_, getState) => {
+  try {
+    const {
+      auth: {token},
+    } = getState();
+
+    await resetFcmTokenService(token, fcmToken);
   } catch (err) {
     throw err;
   }
