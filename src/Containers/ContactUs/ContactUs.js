@@ -2,6 +2,7 @@ import React from 'react';
 import {ScrollView, Text, TouchableOpacity, Linking} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FoundationIcons from 'react-native-vector-icons/Entypo';
 
 import styles from './ContactUs.styles';
 import {Colors} from '../../Themes';
@@ -44,18 +45,6 @@ const ContactUs = ({navigation}) => {
       <TouchableOpacity
         style={styles.row}
         activeOpacity={0.8}
-        onPress={() => Linking.openURL('https://www.facebook.com/aasfiiitm')}>
-        <MaterialCommunityIcons
-          name="facebook"
-          size={30}
-          color={Colors.white}
-        />
-        <Text style={styles.goldText}>/aasfiiitm</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.row}
-        activeOpacity={0.8}
         onPress={() =>
           Linking.openURL('https://www.instagram.com/aasf_iiitmg')
         }>
@@ -70,9 +59,33 @@ const ContactUs = ({navigation}) => {
       <TouchableOpacity
         style={styles.row}
         activeOpacity={0.8}
+        onPress={() => Linking.openURL('https://www.facebook.com/aasfiiitm')}>
+        <MaterialCommunityIcons
+          name="facebook"
+          size={30}
+          color={Colors.white}
+        />
+        <Text style={styles.goldText}>/aasfiiitm</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.row}
+        activeOpacity={0.8}
         onPress={() => Linking.openURL('https://github.com/AASF-IIITM')}>
         <MaterialCommunityIcons name="github" size={30} color={Colors.white} />
         <Text style={styles.goldText}>/aasf-iiitm</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.row}
+        activeOpacity={0.8}
+        onPress={() => Linking.openURL('https://medium.com/tech-iiitg')}>
+        <FoundationIcons
+          name="medium-with-circle"
+          size={26}
+          color={Colors.white}
+        />
+        <Text style={styles.goldText}>/tech-iiitg</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
