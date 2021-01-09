@@ -43,20 +43,27 @@ const Leaderboard = () => {
     loadMore();
   }, []);
 
-  const displayLeaderboard = leaderboard.map((student, index) => (
-    <LeaderboardCard
-      key={student._id}
-      image={
-        student.dp ||
-        'https://aasfwebsitergdiag.blob.core.windows.net/dps/default.png'
-      }
-      rank={index + 1}
-      name={student.name}
-      roll={student._id}
-      score={student.totalScore}
-      leader={index === 0}
-    />
-  ));
+  const displayLeaderboard = () => {
+    let rank = 1;
+    return leaderboard.map((student, index, arr) => {
+      if (index !== 0 && arr[index - 1].totalScore !== student.totalScore)
+        rank++;
+      return (
+        <LeaderboardCard
+          key={student._id}
+          image={
+            student.dp ||
+            'https://aasfwebsitergdiag.blob.core.windows.net/dps/default.png'
+          }
+          rank={rank}
+          name={student.name}
+          roll={student._id}
+          score={student.totalScore}
+          leader={rank === 1}
+        />
+      );
+    });
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.screen}>
@@ -72,7 +79,7 @@ const Leaderboard = () => {
       <Text style={styles.note}>
         *Rank might be different in the leaderboard due to equality of scores.
       </Text>
-      {displayLeaderboard}
+      {displayLeaderboard()}
       {loading ? (
         <ActivityIndicator size="large" color={Colors.gold} />
       ) : !done ? (
