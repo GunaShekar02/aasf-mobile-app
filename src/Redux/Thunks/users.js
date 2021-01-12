@@ -6,6 +6,7 @@ import {
   resetPassword as resetPasswordService,
   resetFcmToken as resetFcmTokenService,
   uploadDP as uploadDPService,
+  sendSuggestion as sendSuggestionService,
 } from '../../Services/users.service';
 
 export const getUserDetails = () => async (dispatch, getState) => {
@@ -81,6 +82,21 @@ export const uploadDP = (dp) => async (dispatch, getState) => {
       type: ActionTypes.EDIT_USER_DETAILS,
       payload: {user: {dp: dp.uri}},
     });
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const sendSuggestion = (suggestion, anonymous) => async (
+  _,
+  getState,
+) => {
+  try {
+    const {
+      auth: {token},
+    } = getState();
+
+    await sendSuggestionService(suggestion, anonymous, token);
   } catch (err) {
     throw err;
   }

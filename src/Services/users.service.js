@@ -6,6 +6,7 @@ import {
   LEADERBOARD_URL,
   PASSWORD_URL,
   USER_DETAILS_URL,
+  SUGGESTIONS_URL,
 } from '../Utils/constants';
 
 export const getUserDetails = async (token) => {
@@ -74,6 +75,19 @@ export const uploadDP = async ({fileName, type, uri}, token) => {
 
     return response.data;
   } catch (err) {
-    throw err;
+    throw err.response.data;
+  }
+};
+
+export const sendSuggestion = async (suggestion, anonymous, token) => {
+  try {
+    await axios.post(
+      SUGGESTIONS_URL,
+      {suggestion, anonymous},
+      {headers: {Authorization: `Bearer ${token}`}},
+    );
+  } catch (err) {
+    console.log(err);
+    throw err.response.data;
   }
 };

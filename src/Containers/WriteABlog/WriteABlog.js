@@ -27,7 +27,7 @@ const WriteABlog = ({navigation}) => {
         link" option.
       </Text>
       <Text style={styles.instructionsText}>
-        3. Drop a mail on{' '}
+        3. Drop a mail at{' '}
         <Text
           style={styles.noteText}
           onPress={() => Linking.openURL('mailto:aasf.iiitmg@gmail.com')}>

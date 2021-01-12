@@ -20,6 +20,11 @@ export default StyleSheet.create({
     fontSize: Metrics.h3,
     marginBottom: Metrics.marginSmall,
   },
+  goldText: {
+    color: Colors.gold,
+    fontSize: Metrics.h3,
+    marginBottom: Metrics.marginSmall,
+  },
   checkboxView: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -28,22 +28,11 @@ const BugReport = ({navigation}) => {
           onPress={() => Linking.openURL('mailto:aasf.iiitmg@gmail.com')}>
           aasf.iiitmg@gmail.com
         </Text>{' '}
-        or fill the form below :
+        with the subject{' '}
+        <Text style={styles.goldText}>{'[APP BUG REPORT]'}</Text> with the body
+        containing a brief description of the bug along with any relevant
+        screenshots.
       </Text>
-
-      <TextInput
-        placeholder={'Briefly describe the bug'}
-        multiline={true}
-        numberOfLines={5}
-        value={bug}
-        setValue={setBug}
-      />
-      <TextInput
-        placeholder={'Drive Link to relevant screenshots'}
-        value={link}
-        setValue={setLink}
-      />
-      <Button title={'Submit'} />
     </ScrollView>
   );
 };
