@@ -26,6 +26,7 @@ const Profile = ({navigation}) => {
 
   const handleUploadDP = async (dp) => {
     try {
+      if (dp.didCancel) return;
       if (dp.fileSize > 3000000) {
         Alert.alert(
           'Image too large!',
