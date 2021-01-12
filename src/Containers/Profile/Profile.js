@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
+  ActivityIndicator,
   Alert,
   Image,
-  Linking,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -10,35 +10,43 @@ import {
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useSelector, useDispatch} from 'react-redux';
+import {launchImageLibrary} from 'react-native-image-picker';
 
 import styles from './Profile.styles';
 import {Colors, Metrics} from '../../Themes';
 
 import {logout} from '../../Redux/Thunks/auth';
+import {uploadDP} from '../../Redux/Thunks/users';
 
 const Profile = ({navigation}) => {
-  const {name} = useSelector((state) => state.user);
+  const [loading, setLoading] = useState(false);
+  const {name, dp} = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
-  const displayEditAlert = () => {
-    Alert.alert(
-      '',
-      'The developer has been procrastinating the development of this feature! You can bug him to do this on his LinkedIn profile.',
-      [
-        {
-          text: 'Close',
-          style: 'cancel',
-        },
-        {
-          text: 'Profile',
-          onPress: () =>
-            Linking.openURL(
-              'https://www.linkedin.com/in/guna-shekar-proddaturi/',
-            ),
-        },
-      ],
-    );
+  const handleUploadDP = async (dp) => {
+    try {
+      if (dp.fileSize > 1000000) {
+        Alert.alert(
+          'Image too large!',
+          'Please select an image with a max size of 1MB',
+        );
+        return;
+      }
+      setLoading(true);
+      await dispatch(uploadDP(dp));
+    } catch (err) {
+      Alert.alert(
+        'OOPS!',
+        err.message || 'Something went wrong! Please try again.',
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleEditDP = () => {
+    launchImageLibrary({mediaType: 'photo'}, handleUploadDP);
   };
 
   return (
@@ -48,14 +56,20 @@ const Profile = ({navigation}) => {
         <Image
           source={{
             uri:
+              dp ||
               'https://aasfwebsitergdiag.blob.core.windows.net/dps/default.png',
           }}
           style={styles.image}
         />
+        {loading ? (
+          <View style={styles.imageLoading}>
+            <ActivityIndicator size="large" color={Colors.gold} />
+          </View>
+        ) : null}
         <TouchableOpacity
           style={styles.edit}
           activeOpacity={0.8}
-          onPress={displayEditAlert}>
+          onPress={handleEditDP}>
           <MaterialIcons name="edit" size={Metrics.h3} color={Colors.white} />
         </TouchableOpacity>
       </View>

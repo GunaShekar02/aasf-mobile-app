@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import {
+  DP_URL,
   FCM_TOKEN_URL,
   LEADERBOARD_URL,
   PASSWORD_URL,
@@ -54,5 +55,25 @@ export const resetFcmToken = async (token, fcmToken) => {
     );
   } catch (err) {
     throw err.response.data;
+  }
+};
+
+export const uploadDP = async ({fileName, type, uri}, token) => {
+  try {
+    const data = new FormData();
+    data.append('dp', {
+      name: fileName,
+      type: type,
+      uri: uri,
+    });
+
+    const response = await axios.put(DP_URL, data, {
+      headers: {Authorization: `Bearer ${token}`},
+      'content-type': 'multipart/form-data',
+    });
+
+    return response.data;
+  } catch (err) {
+    throw err;
   }
 };

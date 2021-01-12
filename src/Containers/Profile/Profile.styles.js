@@ -42,6 +42,14 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  imageLoading: {
+    position: 'absolute',
+    height: widthPercentageToDP('50%'),
+    width: widthPercentageToDP('50%'),
+    justifyContent: 'center',
+    borderRadius: 100,
+    backgroundColor: Colors.transparentGrey,
+  },
   name: {
     fontSize: Metrics.h2,
     color: Colors.white,

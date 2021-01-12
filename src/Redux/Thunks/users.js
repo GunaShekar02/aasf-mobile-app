@@ -5,6 +5,7 @@ import {
   getLeaderboard as getLeaderboardService,
   resetPassword as resetPasswordService,
   resetFcmToken as resetFcmTokenService,
+  uploadDP as uploadDPService,
 } from '../../Services/users.service';
 
 export const getUserDetails = () => async (dispatch, getState) => {
@@ -63,6 +64,23 @@ export const resetFcmToken = (fcmToken) => async (_, getState) => {
     } = getState();
 
     await resetFcmTokenService(token, fcmToken);
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const uploadDP = (dp) => async (dispatch, getState) => {
+  try {
+    const {
+      auth: {token},
+    } = getState();
+
+    await uploadDPService(dp, token);
+
+    dispatch({
+      type: ActionTypes.EDIT_USER_DETAILS,
+      payload: {user: {dp: dp.uri}},
+    });
   } catch (err) {
     throw err;
   }
