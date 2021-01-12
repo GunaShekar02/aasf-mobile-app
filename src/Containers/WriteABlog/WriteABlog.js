@@ -1,19 +1,13 @@
-import React, {useState} from 'react';
-import {ScrollView, TouchableOpacity, Text} from 'react-native';
+import React from 'react';
+import {ScrollView, TouchableOpacity, Text, Linking} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './WriteABlog.styles';
 import {Colors} from '../../Themes';
 
-import TextInput from '../../Components/TextInput/TextInput';
-import Button from '../../Components/Button/Button';
-
 import Writer from '../../Assets/writer.svg';
 
 const WriteABlog = ({navigation}) => {
-  const [email, setEmail] = useState();
-  const [draft, setDraft] = useState();
-
   return (
     <ScrollView contentContainerStyle={styles.screen}>
       <Text style={styles.title}>
@@ -33,25 +27,21 @@ const WriteABlog = ({navigation}) => {
         link" option.
       </Text>
       <Text style={styles.instructionsText}>
-        3. Enter your email that is registered on Medium, and the draft link in
-        the form below and click on Submit.
+        3. Drop a mail on{' '}
+        <Text
+          style={styles.noteText}
+          onPress={() => Linking.openURL('mailto:aasf.iiitmg@gmail.com')}>
+          aasf.iiitmg@gmail.com
+        </Text>{' '}
+        with the subject{' '}
+        <Text style={styles.noteText}>{'"[BLOG ENTRY] <Roll Number>"'}</Text>{' '}
+        with the body containing the draft link to your blog and the email ID
+        associated with your medium account.
       </Text>
       <Text style={styles.noteText}>
         Note: The blog is all yours and you'll be given due credit for it. We're
         just giving it a home. :)
       </Text>
-      <TextInput
-        placeholder={'Enter Your Email'}
-        value={email}
-        setValue={setEmail}
-        autoCompleteType={'email'}
-      />
-      <TextInput
-        placeholder={'Enter Link to Medium Draft'}
-        value={draft}
-        setValue={setDraft}
-      />
-      <Button title={'Submit'} />
     </ScrollView>
   );
 };
