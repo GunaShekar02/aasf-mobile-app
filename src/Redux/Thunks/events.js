@@ -50,7 +50,6 @@ export const markAttendance = (hash) => async (_, getState) => {
     } = getState();
 
     const data = await markAttendanceService(token, hash);
-    console.log(data);
   } catch (err) {
     throw err;
   }

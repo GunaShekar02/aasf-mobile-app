@@ -87,7 +87,6 @@ export const sendSuggestion = async (suggestion, anonymous, token) => {
       {headers: {Authorization: `Bearer ${token}`}},
     );
   } catch (err) {
-    console.log(err);
     throw err.response.data;
   }
 };
