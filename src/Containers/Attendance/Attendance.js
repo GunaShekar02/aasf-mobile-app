@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Alert, View} from 'react-native';
+import {Alert, View, ToastAndroid} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {useDispatch} from 'react-redux';
 
@@ -15,6 +15,7 @@ const Attendance = () => {
   const onRead = async (e) => {
     try {
       setLoading(true);
+      ToastAndroid.show('Marking attendance, please wait!', ToastAndroid.SHORT);
       await dispatch(markAttendance(e.data));
       Alert.alert('Success!', 'Attendance has been marked successfully.');
     } catch (err) {

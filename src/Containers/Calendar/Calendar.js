@@ -61,8 +61,8 @@ const Calendar = () => {
       <Agenda
         items={events}
         selected={new Date()}
-        minDate={'2020-05-10'}
-        maxDate={'2021-05-30'}
+        minDate={'2022-01-10'}
+        maxDate={'2023-05-30'}
         renderItem={renderItem}
         theme={customTheme}
         style={styles.agendaList}
