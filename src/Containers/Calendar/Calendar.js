@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, Text} from 'react-native';
+import {Linking, Text, TouchableOpacity} from 'react-native';
 import {Agenda} from 'react-native-calendars';
 import {useSelector, useDispatch} from 'react-redux';
 
@@ -19,9 +19,12 @@ const Calendar = () => {
 
   const renderItem = (item) => {
     return (
-      <View style={styles.card}>
+      <TouchableOpacity
+        style={styles.card}
+        activeOpacity={0.8}
+        onPress={() => (item.joinLink ? Linking.openURL(item.joinLink) : null)}>
         <Text style={styles.cardText}>{item.name}</Text>
-      </View>
+      </TouchableOpacity>
     );
   };
 

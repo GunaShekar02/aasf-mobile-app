@@ -14,9 +14,14 @@ export const getEvents = () => async (dispatch) => {
     data.events.forEach((event) => {
       if (event.numberOfDays === 1) {
         if (events[event.startDate]) {
-          events[event.startDate].push({name: event.name});
+          events[event.startDate].push({
+            name: event.name,
+            joinLink: event.joinLink,
+          });
         } else {
-          events[event.startDate] = [{name: event.name}];
+          events[event.startDate] = [
+            {name: event.name, joinLink: event.joinLink},
+          ];
         }
       } else {
         for (let i = 0; i < event.numberOfDays; ++i) {
@@ -26,9 +31,14 @@ export const getEvents = () => async (dispatch) => {
             .toISOString()
             .split('T')[0];
           if (events[date]) {
-            events[date].push({name: `${event.name} - Day ${i + 1}`});
+            events[date].push({
+              name: `${event.name} - Day ${i + 1}`,
+              joinLink: event.joinLink,
+            });
           } else {
-            events[date] = [{name: `${event.name} - Day ${i + 1}`}];
+            events[date] = [
+              {name: `${event.name} - Day ${i + 1}`, joinLink: event.joinLink},
+            ];
           }
         }
       }
