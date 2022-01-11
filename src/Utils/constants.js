@@ -1,5 +1,4 @@
-// const BASE_URL = 'https://aasf-api.centralindia.cloudapp.azure.com';
-const BASE_URL = 'http://192.168.29.241:3000';
+const BASE_URL = 'https://aasf-api.centralindia.cloudapp.azure.com';
 
 const USERS_URL = `${BASE_URL}/users`;
 export const LOGIN_URL = `${USERS_URL}/login`;
