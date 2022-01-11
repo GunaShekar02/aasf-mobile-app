@@ -17,9 +17,29 @@ export const getUserDetails = () => async (dispatch, getState) => {
 
     const userData = await getUserDetailsService(token);
 
+    const achievements = {
+      first: [],
+      second: [],
+      third: [],
+    };
+
+    userData.achievements?.forEach((achievement) => {
+      switch (achievement.position) {
+        case 1:
+          achievements.first.push(achievement.eventId.name);
+          break;
+        case 2:
+          achievements.second.push(achievement.eventId.name);
+          break;
+        case 1:
+          achievements.third.push(achievement.eventId.name);
+          break;
+      }
+    });
+
     dispatch({
       type: ActionTypes.USER_DETAILS_SUCCESS,
-      payload: {user: userData.user, rank: userData.rank},
+      payload: {user: userData.user, rank: userData.rank, achievements},
     });
   } catch (err) {
     throw err;

@@ -10,7 +10,12 @@ const user = (
 ) => {
   switch (action.type) {
     case USER_DETAILS_SUCCESS:
-      return {...state, ...action.payload.user, rank: action.payload.rank};
+      return {
+        ...state,
+        ...action.payload.user,
+        rank: action.payload.rank,
+        achievements: action.payload.achievements,
+      };
     case EDIT_USER_DETAILS:
       return {...state, ...action.payload.user};
     case CLEAR_USER_DETAILS:

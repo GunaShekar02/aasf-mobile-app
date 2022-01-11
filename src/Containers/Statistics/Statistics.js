@@ -13,6 +13,44 @@ const Statistics = ({navigation}) => {
   const {score, achievements, rank} = useSelector((state) => state.user);
   const totalScore = score?.technical + score?.managerial + score?.oratory || 0;
 
+  const displayAchievements = () => {
+    if (
+      achievements?.first?.length === 0 &&
+      achievements?.second?.length === 0 &&
+      achievements?.third?.length === 0
+    ) {
+      return (
+        <Text style={styles.achievementsText}>
+          Nothing here yet! Participate in contests to win exciting prizes and
+          climb up the leaderboard!
+        </Text>
+      );
+    }
+
+    const eventsWon = [];
+
+    if (achievements.first.length !== 0)
+      eventsWon.push(
+        <Text style={styles.achievementsText}>
+          First : {achievements.first.join(', ')}
+        </Text>,
+      );
+    if (achievements.second.length !== 0)
+      eventsWon.push(
+        <Text style={styles.achievementsText}>
+          Second : {achievements.second.join(', ')}
+        </Text>,
+      );
+    if (achievements.third.length !== 0)
+      eventsWon.push(
+        <Text style={styles.achievementsText}>
+          Third : {achievements.third.join(', ')}
+        </Text>,
+      );
+
+    return eventsWon;
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.screen}>
       <Text style={styles.title}>
@@ -57,15 +95,7 @@ const Statistics = ({navigation}) => {
 
       <View style={styles.achievementsBox}>
         <Text style={styles.achievementsTitle}>Achievements</Text>
-        <Text style={styles.achievementsText}>
-          First : {achievements.first.join(', ')}
-        </Text>
-        <Text style={styles.achievementsText}>
-          Second : {achievements.second.join(', ')}
-        </Text>
-        <Text style={styles.achievementsText}>
-          Third : {achievements.third.join(', ')}
-        </Text>
+        {displayAchievements()}
       </View>
     </ScrollView>
   );
