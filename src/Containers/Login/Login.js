@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {ScrollView, Text, Image, Alert} from 'react-native';
+import {ScrollView, Text, Image, Alert, TouchableOpacity} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 
 import TextInput from '../../Components/TextInput/TextInput';
@@ -13,7 +13,7 @@ import {login} from '../../Redux/Thunks/auth';
 
 import validRollNumber from '../../Utils/rollNumberValidation';
 
-const Login = () => {
+const Login = ({navigation}) => {
   const dispatch = useDispatch();
 
   const [roll, setRoll] = useState();
@@ -53,6 +53,11 @@ const Login = () => {
         secureTextEntry={true}
       />
       <Button title="Login" loading={loading} onPress={handleLogin} />
+      <TouchableOpacity
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate('ForgotPassword')}>
+        <Text style={styles.text}>Forgot Password?</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 };
