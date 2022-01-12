@@ -22,14 +22,13 @@ export const homeData = [
     text:
       'Go through useful resources, curated by the students, for the students!',
     link:
-      'https://docs.google.com/document/d/1PnIP0cSEFjdR4HyjTyRJFS0_T_y-ilDM8x89rCNVj7o/edit?usp=sharing',
+      'https://docs.google.com/document/d/1MUTPmybU0yMR08vu9IjzPpkDpJPXOFP0bjk4UwaG09A/edit?usp=sharing',
   },
   {
     id: 3,
     backgroundColor: Colors.blue,
     image: () => <Abhishar height={'100%'} width={'50%'} />,
-    text:
-      "Read interesting articles in the institute's annual magazine, Abhishar!",
+    text: "Read interesting articles in AASF's annual magazine, Abhishar!",
     link: 'http://aasf.in/aasf/abhishar.php',
   },
 ];
