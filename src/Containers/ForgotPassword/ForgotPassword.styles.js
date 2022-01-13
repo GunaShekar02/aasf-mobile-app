@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, StatusBar} from 'react-native';
 import {Colors, Metrics} from '../../Themes';
 
 export default StyleSheet.create({
   screen: {
     backgroundColor: Colors.darkGrey,
-    minHeight: Metrics.screenHeight,
+    minHeight: Metrics.screenHeight + StatusBar.currentHeight,
     paddingVertical: Metrics.paddingLarge,
     paddingHorizontal: Metrics.paddingSmall,
     paddingBottom: Metrics.paddingLarge * 2,
